@@ -18,16 +18,16 @@
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-title">
                     Welcome, {{\Illuminate\Support\Facades\Auth::user()->name}}</div>
-                <a class="dropdown-item has-icon edit-profile" href="#" data-id="{{ \Auth::id() }}">
+                <a class="dropdown-item has-icon edit-profile" href="#" data-id="{{\Auth::id()}}">
                     <i class="fa fa-user"></i>Edit Profile</a>
                 <a class="dropdown-item has-icon" data-toggle="modal" data-target="#changePasswordModal" href="#" data-id="{{ \Auth::id() }}"><i
-                            class="fa fa-lock"> </i>Change Password</a>
-                <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"
-                   onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
+                            class="fa fa-lock"></i>Change Password</a>
+                <a href="{{url('logout')}} class="dropdown-item has-icon text-danger"
+                   onclick="event.preventDefault(); localStorage.clear();document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
-                <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
-                    {{ csrf_field() }}
+                <form id="logout-form" action="{{url('/logout')}}" method="POST" class="d-none">
+                    {{csrf_field()}}
                 </form>
             </div>
         </li>
@@ -51,3 +51,10 @@
         </li>
     @endif
 </ul>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+  
+
+

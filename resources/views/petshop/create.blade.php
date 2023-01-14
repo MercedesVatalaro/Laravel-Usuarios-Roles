@@ -10,14 +10,25 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                       
-                        {{!!Form::open(array('route'=>'petshop.store', 'method'=>'POST'))!!}}
+                    @if ($errors->any())
+                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                            <strong>¡Revise los campos!</strong>
+                                @foreach ($errors->all() as $error)
+                                    <span class="badge badge-danger">{{ $error }}</span>
+                                @endforeach
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        @endif
+
+                        {!!Form::open(array('route'=>'petshop.store', 'method'=>'POST'))!!}
                         @csrf
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    {{!!Form::text('nombre', null, array('class'=>'form-control'))!!}}
+                                    {!!Form::text('nombre', null, array('class'=>'form-control'))!!}
                                 </div>
                             </div>
 
@@ -25,7 +36,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="descripcion">Descripcion</label>
-                                    {{!!Form::text('descripcion', null, array('class'=>'form-control'))!!}}
+                                    {!!Form::text('descripcion', null, array('class'=>'form-control'))!!}
                                 </div>
                             </div>
 
@@ -33,7 +44,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-group">
                                     <label for="precio">Precio</label>
-                                    {{!!Form::text('precio', null, array('class'=>'form-control'))!!}}
+                                    {!!Form::text('precio', null, array('class'=>'form-control'))!!}
                                 </div>
                             </div>
 
@@ -46,7 +57,7 @@
                         </div>
 
 
-                        {{!!Form::close()!!}}
+                        {!!Form::close()!!}
                     </div>
                 </div>
             </div>

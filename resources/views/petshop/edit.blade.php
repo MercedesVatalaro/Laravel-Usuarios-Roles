@@ -10,7 +10,18 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        
+                    @if ($errors->any())
+                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                            <strong>¡Revise los campos!</strong>
+                                @foreach ($errors->all() as $error)
+                                    <span class="badge badge-danger">{{ $error }}</span>
+                                @endforeach
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                        @endif
+
                         <form action="{{ route('petshop.update',$Petshop->id) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -27,17 +38,17 @@
                                    <input type="text" name="descripcion" class="form-control" value="{{$Petshop->descripcion}}">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">                                                    
+                            <div class="col-xs-12 col-sm-12 col-md-12">
                                 <div class="form-floating">
                                 <label for="precio">Precio</label>
                                 <input type="text" name="precio" class="form-control" value="{{$Petshop->precio}}">
                                 </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Guardar</button>                            
+                            <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>
                     </form>
-                        
-                       
+
+
                     </div>
                 </div>
             </div>
